@@ -1,16 +1,21 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:simba/style/_style.dart';
 
 import 'lt_color.dart';
 
 class LtGradient {
   const LtGradient._();
 
-  static const LinearGradient orangeToBlack = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: <Color>[
+  static LinearGradient whiteToYellow = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
       LtColor.white,
-      LtColor.yellow,
+      LtColor.lightYellow,
+    ],
+    stops: [
+      0.15,
+      0.9,
     ],
   );
 }

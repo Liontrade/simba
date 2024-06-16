@@ -6,6 +6,9 @@ class LtColor {
   /// #FFAE34
   static const Color yellow = Color(0xFFFFAE34);
 
+  /// #F9D9A6
+  static const Color lightYellow = Color(0xFFF9D9A6);
+
   /// #2F8A48
   static const Color green = Color(0xFF2F8A48);
 
