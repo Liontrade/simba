@@ -172,7 +172,7 @@ class LtTextStyle {
   static TextStyle customize({
     double letterSpacing = 0.0,
     double fontSize = 12.0,
-    LtFontWeight LtFontWeight = LtFontWeight.medium,
+    LtFontWeight ltFontWeight = LtFontWeight.medium,
     Color color = LtColor.white,
   }) {
     return TextStyle(
@@ -181,7 +181,7 @@ class LtTextStyle {
       fontSize: fontSize,
       letterSpacing: letterSpacing,
       height: 1.0,
-      fontWeight: LtFontWeight.fontWeight,
+      fontWeight: ltFontWeight.fontWeight,
     );
   }
 
