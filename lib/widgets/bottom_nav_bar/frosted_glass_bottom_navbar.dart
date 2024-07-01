@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '_frosted_glass_bottom_nav_bar.dart';
+import 'components/frosted_glass_container.dart';
+import 'components/custom_bottom_navigation_bar.dart';
 
 class FrostedGlassBottomNavBar extends StatelessWidget {
   final int selectedIndex;

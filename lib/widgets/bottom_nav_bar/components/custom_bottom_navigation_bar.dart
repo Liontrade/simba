@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '_components.dart';
+import 'nav_item_selected.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final int selectedIndex;
@@ -24,6 +24,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         _buildNavItem(icon: Icons.home, index: 0),
         _buildNavItem(icon: Icons.search, index: 1),
         _buildNavItem(icon: Icons.person, index: 2),
+        _buildNavItem(icon: Icons.settings, index: 3),
       ],
       currentIndex: selectedIndex,
       selectedItemColor: Colors.black,
