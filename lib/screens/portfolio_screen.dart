@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:simba/screens/settings/settings_screen.dart';
 import 'package:simba/style/_style.dart';
+import 'package:simba/style/fonts/_fonts_style.dart';
 import 'package:simba/widgets/bottom_nav_bar/frosted_glass_bottom_navbar.dart';
 
 class PortfolioScreen extends StatefulWidget {
@@ -12,11 +14,14 @@ class PortfolioScreen extends StatefulWidget {
 class _PortfolioScreenState extends State<PortfolioScreen> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+  static List<Widget> _widgetOptions = <Widget>[
+    Center(child: Text('Home Page', style: LtTextStyle.manrope40regular)),
+    Center(child: Text('Search Page', style: LtTextStyle.manrope40regular)),
+    Center(child: Text('Profile Page', style: LtTextStyle.manrope40regular)),
+    SettingsScreen(title: 'Menu'),
   ];
+
+  static List<String> _titles = ['Home Page', 'Search Page', 'Profile Page', 'Menu'];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -34,11 +39,8 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: _widgetOptions.elementAt(_selectedIndex),
+          title: Text(_titles[_selectedIndex], style: LtTextStyle.manrope40regular,),
           centerTitle: true,
-        ),
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: FrostedGlassBottomNavBar(
           selectedIndex: _selectedIndex,
