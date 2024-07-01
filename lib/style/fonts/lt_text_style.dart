@@ -13,7 +13,7 @@ class LtTextStyle {
 
   static const TextStyle _manrope = TextStyle(
     fontFamily: 'Manrope',
-    color: LtColor.white,
+    color: LtColor.black,
     height: 1,
   );
 
@@ -164,16 +164,23 @@ class LtTextStyle {
     fontWeight: _manropeMedium,
   );
 
+  static final TextStyle _manrope40regular = _manrope.copyWith(
+    fontSize: 40.0,
+    fontWeight: _manropeRegular,
+    color: LtColor.black,
+  );
+
   static final TextStyle _manrope48regular = _manrope.copyWith(
     fontSize: 48.0,
     fontWeight: _manropeRegular,
+    color: LtColor.black,
   );
 
   static TextStyle customize({
     double letterSpacing = 0.0,
     double fontSize = 12.0,
     LtFontWeight ltFontWeight = LtFontWeight.medium,
-    Color color = LtColor.white,
+    Color color = LtColor.black,
   }) {
     return TextStyle(
       fontFamily: 'Manrope',
@@ -214,5 +221,6 @@ class LtTextStyle {
   static final TextStyle manrope32regular = _manrope32regular;
   static final TextStyle manrope36medium = _manrope36medium;
   static final TextStyle manrope36regular = _manrope36regular;
+  static final TextStyle manrope40regular = _manrope40regular;
   static final TextStyle manrope48regular = _manrope48regular;
 }
