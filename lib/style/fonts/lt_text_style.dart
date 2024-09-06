@@ -94,6 +94,11 @@ class LtTextStyle {
     fontWeight: _manropeRegular,
   );
 
+  static final TextStyle _manrope16bold = _manrope.copyWith(
+    fontSize: 16.0,
+    fontWeight: _manropeBold,
+  );
+
   static final TextStyle _manrope18medium = _manrope.copyWith(
     fontSize: 18.0,
     fontWeight: _manropeMedium,
@@ -102,6 +107,11 @@ class LtTextStyle {
   static final TextStyle _manrope18regular = _manrope.copyWith(
     fontSize: 18.0,
     fontWeight: _manropeRegular,
+  );
+
+  static final TextStyle _manrope18bold = _manrope.copyWith(
+    fontSize: 18.0,
+    fontWeight: _manropeBold,
   );
 
   static final TextStyle _manrope18regularSpaced = _manropeSpaced.copyWith(
@@ -122,6 +132,11 @@ class LtTextStyle {
   static final TextStyle _manrope20semiBold = _manrope.copyWith(
     fontSize: 20.0,
     fontWeight: _manropeSemiBold,
+  );
+
+  static final TextStyle _manrope20bold = _manrope.copyWith(
+    fontSize: 20.0,
+    fontWeight: _manropeBold,
   );
 
   static final TextStyle _manrope24regular = _manrope.copyWith(
@@ -207,12 +222,15 @@ class LtTextStyle {
   static final TextStyle manrope16regular = _manrope16regular;
   static final TextStyle manrope16regularSpaced = _manrope16regularSpaced;
   static final TextStyle manrope16semiBold = _manrope16semiBold;
+  static final TextStyle manrope16bold = _manrope16bold;
   static final TextStyle manrope18medium = _manrope18medium;
   static final TextStyle manrope18mediumSpaced = _manrope18mediumSpaced;
   static final TextStyle manrope18regular = _manrope18regular;
+  static final TextStyle manrope18bold = _manrope18bold;
   static final TextStyle manrope18regularSpaced = _manrope18regularSpaced;
   static final TextStyle manrope18semiboldSpaced = _manrope18semiboldSpaced;
   static final TextStyle manrope20semiBold = _manrope20semiBold;
+  static final TextStyle manrope20bold = _manrope20bold;
   static final TextStyle manrope24medium = _manrope24medium;
   static final TextStyle manrope24regular = _manrope24regular;
   static final TextStyle manrope24semiBold = _manrope24semiBold;
