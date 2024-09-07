@@ -9,9 +9,11 @@ class StockTile extends StatelessWidget {
   final IconData iconData;
   final bool isLiked;
   final bool isFirst;
+  final bool isLast;
+  final bool isLikedTabSelected;
 
   const StockTile({
-    Key? key,
+    super.key,
     required this.companyName,
     required this.companyFullName,
     required this.price,
@@ -19,19 +21,21 @@ class StockTile extends StatelessWidget {
     required this.iconData,
     required this.isLiked,
     required this.isFirst,
-  }) : super(key: key);
+    required this.isLast,
+    required this.isLikedTabSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.brown.withOpacity(0.3),
-        borderRadius: isFirst
-            ? const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              )
-            : BorderRadius.circular(0),
+        borderRadius: BorderRadius.only(
+          topLeft: isFirst && isLikedTabSelected ? const Radius.circular(20) : Radius.zero,
+          topRight: isFirst && !isLikedTabSelected ? const Radius.circular(20) : Radius.zero,
+          bottomLeft: isLast ? const Radius.circular(20) : Radius.zero,
+          bottomRight: isLast ? const Radius.circular(20) : Radius.zero,
+        ),
       ),
       padding: const EdgeInsets.all(16.0),
       child: Row(

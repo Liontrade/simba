@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:simba/style/_style.dart';
-import 'package:simba/widgets/buttons/custom_toggle_button.dart';
-import 'package:simba/widgets/buttons/test_button.dart';
+import 'package:simba/widgets/custom_tab_button.dart';
+import 'package:simba/widgets/search_bar.dart';
+import 'package:simba/widgets/list_tiles/stock_tile.dart';
 
-class StocksPage extends StatelessWidget {
-  final List<Map<String, dynamic>> stocks = [
+class StocksPage extends StatefulWidget {
+  const StocksPage({super.key});
+
+  @override
+  _StocksPageState createState() => _StocksPageState();
+}
+
+class _StocksPageState extends State<StocksPage> {
+  int _selectedTabIndex = 0;
+
+  final List<Map<String, dynamic>> _stocks = [
     {
       "symbol": "AAPL",
       "company": "Apple Inc",
@@ -19,7 +28,7 @@ class StocksPage extends StatelessWidget {
       "price": 173.74,
       "change": 7.16,
       "icon": Icons.electric_car,
-      "liked": false,
+      "liked": true,
     },
     {
       "symbol": "META",
@@ -35,7 +44,7 @@ class StocksPage extends StatelessWidget {
       "price": 181.05,
       "change": 2.53,
       "icon": Icons.shopping_cart,
-      "liked": false,
+      "liked": true,
     },
     {
       "symbol": "MSFT",
@@ -125,56 +134,71 @@ class StocksPage extends StatelessWidget {
       "icon": Icons.computer,
       "liked": false,
     },
-    // Add more stocks as necessary
   ];
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> displayedStocks = _stocks.where((stock) {
+      if (_selectedTabIndex == 0) {
+        return true;
+      } else if (_selectedTabIndex == 1) {
+        return stock['liked'];
+      }
+      return false;
+    }).toList();
+
     return Column(
       children: [
-        SearchBar(),
-        CustomToggleButton(),
-        Expanded(
-          child: ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            itemCount: stocks.length,
-            itemBuilder: (context, index) {
-              final stock = stocks[index];
-              return Column(
-                children: [
-                  ListTile(
-                    leading: Icon(stock['icon'], size: 40),
-                    title: Text(stock['symbol'], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                    subtitle: Text(stock['company']),
-                    trailing: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "\$${stock['price']}",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
-                        Text(
-                          "${stock['change'] > 0 ? '+' : ''}${stock['change']}%",
-                          style: TextStyle(color: stock['change'] > 0 ? Colors.green : Colors.red),
-                        ),
-                      ],
-                    ),
-                    onTap: () {},
-                    onLongPress: () {
-                      // Handle liking the stock here
-                    },
-                  ),
-                  Divider(
-                    height: 2,
-                    thickness: 2, // Make the divider thicker
-                    color: Colors.black, // Make the divider black
-                  ),
-                ],
-              );
+        const LtSearchBar(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: CustomTabBar(
+            onTabSelected: (index) {
+              setState(() {
+                _selectedTabIndex = index;
+              });
             },
           ),
-        )
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            child: ListView.builder(
+              itemCount: displayedStocks.length,
+              itemBuilder: (context, index) {
+                final stock = displayedStocks[index];
+                final isLast = index == displayedStocks.length - 1;
+
+                return Padding(
+                  padding: EdgeInsets.only(
+                    bottom: isLast ? 16.0 : 0.0,
+                  ),
+                  child: Column(
+                    children: [
+                      StockTile(
+                        companyName: stock['symbol'],
+                        companyFullName: stock['company'],
+                        price: stock['price'],
+                        change: stock['change'],
+                        iconData: stock['icon'],
+                        isLiked: stock['liked'],
+                        isFirst: index == 0,
+                        isLast: isLast,
+                        isLikedTabSelected: _selectedTabIndex == 1,
+                      ),
+                      if (!isLast)
+                        const Divider(
+                          height: 1,
+                          thickness: 1,
+                          color: Colors.black,
+                        ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
       ],
     );
   }
