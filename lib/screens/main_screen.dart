@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:simba/screens/portfolio/portfolio_screen.dart';
 import 'package:simba/screens/settings/settings_screen.dart';
+import 'package:simba/screens/stocks/stocks_screen.dart';
 import 'package:simba/style/_style.dart';
 import 'package:simba/style/fonts/_fonts_style.dart';
 import 'package:simba/widgets/bottom_nav_bar/frosted_glass_bottom_navbar.dart';
 
-class PortfolioScreen extends StatefulWidget {
-  const PortfolioScreen({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<PortfolioScreen> createState() => _PortfolioScreenState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _PortfolioScreenState extends State<PortfolioScreen> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
-    Center(child: Text('Home Page', style: LtTextStyle.manrope40regular)),
-    Center(child: Text('Search Page', style: LtTextStyle.manrope40regular)),
-    Center(child: Text('Profile Page', style: LtTextStyle.manrope40regular)),
-    SettingsScreen(title: 'Menu'),
-  ];
+  static final List<String> _titles = ['Portfolio', 'Stocks', 'Profile Page', 'Menu'];
 
-  static List<String> _titles = ['Home Page', 'Search Page', 'Profile Page', 'Menu'];
+  final List<Widget> _pages = [
+    PortfolioScreen(),
+    const StocksPage(),
+    Center(child: Text('Profile Page', style: LtTextStyle.manrope40regular)),
+    SettingsScreen(
+      title: 'Menu',
+    ),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -39,8 +43,15 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text(_titles[_selectedIndex], style: LtTextStyle.manrope40regular,),
+          title: Text(
+            _titles[_selectedIndex],
+            style: LtTextStyle.manrope40regular,
+          ),
           centerTitle: true,
+        ),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _pages,
         ),
         bottomNavigationBar: FrostedGlassBottomNavBar(
           selectedIndex: _selectedIndex,

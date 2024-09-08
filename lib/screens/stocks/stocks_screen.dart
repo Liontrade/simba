@@ -147,22 +147,21 @@ class _StocksPageState extends State<StocksPage> {
       return false;
     }).toList();
 
-    return Column(
-      children: [
-        const LtSearchBar(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: CustomTabBar(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        children: [
+          const SizedBox(height: 30),
+          const LtSearchBar(),
+          const SizedBox(height: 20),
+          CustomTabBar(
             onTabSelected: (index) {
               setState(() {
                 _selectedTabIndex = index;
               });
             },
           ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          Expanded(
             child: ListView.builder(
               itemCount: displayedStocks.length,
               itemBuilder: (context, index) {
@@ -198,8 +197,8 @@ class _StocksPageState extends State<StocksPage> {
               },
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

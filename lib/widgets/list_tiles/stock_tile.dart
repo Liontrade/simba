@@ -70,10 +70,10 @@ class StockTile extends StatelessWidget {
           ),
           Text(
             '${change > 0 ? '+' : ''}${change.toStringAsFixed(2)}%',
-            style: TextStyle(
-              fontFamily: 'Manrope-Bold',
+            style: LtTextStyle.customize(
+              ltFontWeight: LtFontWeight.bold,
+              color: change > 0 ? LtColor.green : LtColor.red,
               fontSize: 14,
-              color: change > 0 ? Colors.green : Colors.red,
             ),
           ),
           const SizedBox(width: 10),
