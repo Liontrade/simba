@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simba/screens/stocks/stock_detail/stock_details_page.dart';
 import 'package:simba/widgets/custom_tab_button.dart';
 import 'package:simba/widgets/search_bar.dart';
 import 'package:simba/widgets/list_tiles/stock_tile.dart';
@@ -168,30 +169,45 @@ class _StocksPageState extends State<StocksPage> {
                 final stock = displayedStocks[index];
                 final isLast = index == displayedStocks.length - 1;
 
-                return Padding(
-                  padding: EdgeInsets.only(
-                    bottom: isLast ? 16.0 : 0.0,
-                  ),
-                  child: Column(
-                    children: [
-                      StockTile(
-                        companyName: stock['symbol'],
-                        companyFullName: stock['company'],
-                        price: stock['price'],
-                        change: stock['change'],
-                        iconData: stock['icon'],
-                        isLiked: stock['liked'],
-                        isFirst: index == 0,
-                        isLast: isLast,
-                        isLikedTabSelected: _selectedTabIndex == 1,
-                      ),
-                      if (!isLast)
-                        const Divider(
-                          height: 1,
-                          thickness: 1,
-                          color: Colors.black,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StockDetailPage(
+                          symbol: stock['symbol'],
+                          company: stock['company'],
+                          price: stock['price'],
+                          change: stock['change'],
                         ),
-                    ],
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      bottom: isLast ? 16.0 : 0.0,
+                    ),
+                    child: Column(
+                      children: [
+                        StockTile(
+                          companyName: stock['symbol'],
+                          companyFullName: stock['company'],
+                          price: stock['price'],
+                          change: stock['change'],
+                          iconData: stock['icon'],
+                          isLiked: stock['liked'],
+                          isFirst: index == 0,
+                          isLast: isLast,
+                          isLikedTabSelected: _selectedTabIndex == 1,
+                        ),
+                        if (!isLast)
+                          const Divider(
+                            height: 1,
+                            thickness: 1,
+                            color: Colors.black,
+                          ),
+                      ],
+                    ),
                   ),
                 );
               },
