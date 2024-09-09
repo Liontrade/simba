@@ -42,6 +42,7 @@ class _MainScreenState extends State<MainScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          scrolledUnderElevation: 0.0,
           backgroundColor: Colors.transparent,
           title: Text(
             _titles[_selectedIndex],
