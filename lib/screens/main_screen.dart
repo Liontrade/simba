@@ -6,6 +6,8 @@ import 'package:simba/style/_style.dart';
 import 'package:simba/style/fonts/_fonts_style.dart';
 import 'package:simba/widgets/bottom_nav_bar/frosted_glass_bottom_navbar.dart';
 
+import 'news/news_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -20,6 +22,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _pages = [
     PortfolioScreen(),
+    const NewsPage(),
     const StocksPage(),
     Center(child: Text('Profile Page', style: LtTextStyle.manrope40regular)),
     SettingsScreen(

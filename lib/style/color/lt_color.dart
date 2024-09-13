@@ -27,6 +27,7 @@ class LtColor {
   /// #1E1E33
   static const Color grey = Color(0xFF1E1E33);
 
-  /// #38332D4D
+  /// #38332D4D 30%
   static const Color darkGrey = Color(0xFF38332D);
+
 }

@@ -30,3 +30,9 @@ flutter:
         - asset: assets/font/Manrope-Medium.ttf
         - asset: assets/font/Manrope-Regular.ttf
         - asset: assets/font/Manrope-SemiBold.ttf
+  assets:
+    - assets/images/casino.jpg
+    - assets/images/bus.jpg
+    - assets/images/capitol.jpg
+    - assets/images/crypto.jpg
+    - assets/images/gps.jpg
