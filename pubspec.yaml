@@ -13,6 +13,8 @@ dependencies:
   equatable: ^2.0.5
   fl_chart: ^0.69.0
   flutter_bloc: ^8.1.6
+  interactive_charts:
+    path: packages/interactive_charts
 
 dev_dependencies:
   flutter_test:
