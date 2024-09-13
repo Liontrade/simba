@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simba/screens/news/news_screen.dart';
 import 'package:simba/screens/portfolio/portfolio_screen.dart';
 import 'package:simba/screens/settings/settings_screen.dart';
 import 'package:simba/screens/stocks/stocks_screen.dart';
@@ -6,25 +7,22 @@ import 'package:simba/style/_style.dart';
 import 'package:simba/style/fonts/_fonts_style.dart';
 import 'package:simba/widgets/bottom_nav_bar/frosted_glass_bottom_navbar.dart';
 
-import 'news/news_screen.dart';
-
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class NavigationScreen extends StatefulWidget {
+  const NavigationScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _NavigationScreenState extends State<NavigationScreen> {
   int _selectedIndex = 0;
 
   static final List<String> _titles = ['Portfolio', 'Stocks', 'Profile Page', 'Menu'];
 
   final List<Widget> _pages = [
     PortfolioScreen(),
-    const NewsPage(),
     const StocksPage(),
-    Center(child: Text('Profile Page', style: LtTextStyle.manrope40regular)),
+    const NewsPage(),
     SettingsScreen(
       title: 'Menu',
     ),

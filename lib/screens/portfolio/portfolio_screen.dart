@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:simba/screens/portfolio/widgets/profit_card.dart';
-import 'package:simba/widgets/cards/_cards.dart';
-import 'package:simba/widgets/search_bar.dart';
+import 'package:simba/widgets/_widgets.dart';
 
 class PortfolioScreen extends StatelessWidget {
+  const PortfolioScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simba/screens/stocks/stock_detail/stock_details_page.dart';
-import 'package:simba/widgets/custom_tab_button.dart';
-import 'package:simba/widgets/search_bar.dart';
-import 'package:simba/widgets/list_tiles/stock_tile.dart';
+import 'package:simba/widgets/_widgets.dart';
 
 class StocksPage extends StatefulWidget {
   const StocksPage({super.key});

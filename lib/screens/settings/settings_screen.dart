@@ -14,7 +14,7 @@ class SettingsScreen extends StatelessWidget {
           color: Colors.orange[200],
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Column(
+        child: const Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             MenuItem(icon: Icons.person, text: 'Personal info'),
@@ -33,7 +33,7 @@ class MenuItem extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  MenuItem({super.key, required this.icon, required this.text});
+  const MenuItem({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {

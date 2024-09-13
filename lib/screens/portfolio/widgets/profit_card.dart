@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:simba/style/_style.dart';
-import 'package:simba/style/fonts/_fonts_style.dart';
 
 class ProfitCard extends StatelessWidget {
   final double percentProfit;
@@ -34,12 +33,12 @@ class ProfitCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 backgroundColor: Colors.orangeAccent,
                 radius: 30,
                 child: Icon(Icons.person, color: Colors.white),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Text(
                 'Hi there!',
                 style: LtTextStyle.manrope30medium,
@@ -56,7 +55,7 @@ class ProfitCard extends StatelessWidget {
                   'Your profit',
                   style: LtTextStyle.manrope16regular,
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Text(
                   '+10.57%',
                   style: LtTextStyle.customize(
