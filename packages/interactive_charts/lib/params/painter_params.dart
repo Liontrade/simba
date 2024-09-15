@@ -5,6 +5,8 @@ import 'package:interactive_charts/interactive_chart.dart';
 class PainterParams {
   final List<CandleData> candles;
   final ChartStyle style;
+  final ChartColorStyle colorStyle;
+  final ChartTextStyle textStyle;
   final Size size;
   final double candleWidth;
   final double startOffset;
@@ -20,6 +22,8 @@ class PainterParams {
   PainterParams({
     required this.candles,
     required this.style,
+    required this.colorStyle,
+    required this.textStyle,
     required this.size,
     required this.candleWidth,
     required this.startOffset,
@@ -69,6 +73,8 @@ class PainterParams {
     return PainterParams(
       candles: b.candles,
       style: b.style,
+      colorStyle: b.colorStyle,
+      textStyle: b.textStyle,
       size: b.size,
       candleWidth: b.candleWidth,
       startOffset: b.startOffset,
