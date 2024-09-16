@@ -22,27 +22,23 @@ class _NewsPageState extends State<NewsPage> {
     {
       'image': 'assets/images/crypto.jpg',
       'title': 'Cryptocurrency',
-      'saved': true, // sample like status
-    },
-    {
-      'image': 'assets/images/bus.jpg',
-      'title': 'Public Transport',
-      'saved': false,
-    },
-    {
-      'image': 'assets/images/gps.jpg',
-      'title': 'Navigation',
       'saved': true,
+      'time': '12 h ago'
+      // sample like status
     },
+    {'image': 'assets/images/bus.jpg', 'title': 'Public Transport', 'saved': false, 'time': '14 h ago',},
+    {'image': 'assets/images/gps.jpg', 'title': 'Navigation', 'saved': true, 'time': '2 h ago',},
     {
       'image': 'assets/images/capitol.jpg',
       'title': 'Politics',
       'saved': false,
+      'time': '1 h ago',
     },
     {
       'image': 'assets/images/casino.jpg',
       'title': 'Casino',
       'saved': true,
+      'time': '3 h ago',
     },
   ];
 
@@ -97,18 +93,18 @@ class _NewsPageState extends State<NewsPage> {
                     ),
                     child: Column(
                       children: [
-                    NewsTile(
-                      newsAgency: news['title'],
-                      newsSummary: "testowy string,angahikhaaignankjoanfknsbuaibnfHIA\nankvanniweualosf",
-                      timeSincePublication: '12',
-                      imagePath: news['image'],
-                      isSaved: news['saved'],
-                      isForYou: false,
-                      isFirst: index == 0,
-                      isLast: isLast,
-                      isForYouTabSelected: _selectedTabIndex == 1,
-                      isSavedTabSelected: _selectedTabIndex == 2,
-                    ),
+                        NewsTile(
+                          newsAgency: news['title'],
+                          newsSummary: "testowy string,angahikhaaignankjoanfknsbuaibnfHIA\nankvanniweualosf",
+                          timeSincePublication: '12',
+                          imagePath: news['image'],
+                          isSaved: news['saved'],
+                          isForYou: false,
+                          isFirst: index == 0,
+                          isLast: isLast,
+                          isForYouTabSelected: _selectedTabIndex == 1,
+                          isSavedTabSelected: _selectedTabIndex == 2,
+                        ),
                         if (!isLast)
                           const Divider(
                             height: 1,
@@ -127,4 +123,3 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 }
-

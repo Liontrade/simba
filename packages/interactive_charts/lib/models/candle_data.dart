@@ -18,7 +18,7 @@ class CandleData {
   final double? volume;
 
   /// Data holder for additional trend lines.
-  final List<double?> trends;
+  late final List<double?> trends;
 
   CandleData({
     required this.timestamp,

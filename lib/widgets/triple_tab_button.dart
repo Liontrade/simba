@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:simba/style/_style.dart';
-import 'package:simba/widgets/clippers/left_tab_clipper.dart';
-import 'package:simba/widgets/clippers/right_tab_clipper.dart';
+
+import 'clippers/_clippers.dart';
 
 class CustomTripleTabButton extends StatelessWidget {
   final String title;
   final bool isSelected;
-  final bool isLiked;
+  final int position; // 0 = Left, 1 = Middle, 2 = Right
 
   const CustomTripleTabButton({
     super.key,
     required this.title,
     required this.isSelected,
-    required this.isLiked,
+    required this.position,
   });
 
   @override
   Widget build(BuildContext context) {
+    CustomClipper<Path> clipper;
+    // Wybór odpowiedniego clippera w zależności od pozycji przycisku
+    if (position == 0) {
+      clipper = LeftTabClipper();
+    } else if (position == 2) {
+      clipper = RightTabClipper();
+    } else {
+      clipper = MiddleTabClipper();
+    }
+
     return ClipPath(
-      clipper: isLiked ? RightTabClipper() : LeftTabClipper(),
+      clipper: clipper,
       child: Container(
         padding: const EdgeInsets.all(16),
         color: isSelected ? Colors.brown.withOpacity(0.3) : Colors.transparent,
@@ -67,7 +77,7 @@ class _CustomTripleTabBarState extends State<CustomTripleTabBar> {
             child: CustomTripleTabButton(
               title: "All",
               isSelected: selectedIndex == 0,
-              isLiked: false,
+              position: 0, // Lewy przycisk
             ),
           ),
         ),
@@ -82,7 +92,7 @@ class _CustomTripleTabBarState extends State<CustomTripleTabBar> {
             child: CustomTripleTabButton(
               title: "For you",
               isSelected: selectedIndex == 1,
-              isLiked: true,
+              position: 1, // Środkowy przycisk
             ),
           ),
         ),
@@ -97,7 +107,7 @@ class _CustomTripleTabBarState extends State<CustomTripleTabBar> {
             child: CustomTripleTabButton(
               title: "Saved",
               isSelected: selectedIndex == 2,
-              isLiked: true,
+              position: 2, // Prawy przycisk
             ),
           ),
         ),

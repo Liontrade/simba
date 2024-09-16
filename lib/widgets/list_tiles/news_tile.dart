@@ -13,19 +13,18 @@ class NewsTile extends StatelessWidget {
   final bool isForYouTabSelected;
   final bool isSavedTabSelected;
 
-  const NewsTile({
-    super.key,
-    required this.newsAgency,
-    required this.newsSummary,
-    required this.timeSincePublication,
-    required this.imagePath,
-    required this.isSaved,
-    required this.isFirst,
-    required this.isLast,
-    required this.isForYou,
-    required this.isForYouTabSelected,
-    required this.isSavedTabSelected
-  });
+  const NewsTile(
+      {super.key,
+      required this.newsAgency,
+      required this.newsSummary,
+      required this.timeSincePublication,
+      required this.imagePath,
+      required this.isSaved,
+      required this.isFirst,
+      required this.isLast,
+      required this.isForYou,
+      required this.isForYouTabSelected,
+      required this.isSavedTabSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -42,28 +41,48 @@ class NewsTile extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            imagePath,
-            width: 100,
-            height: 100,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: Image.asset(
+              imagePath,
+              width: 120,
+              height: 90,
+              fit: BoxFit.cover,
             ),
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:
-              [
-                Text(
-                  newsAgency,
-                  style: LtTextStyle.manrope18bold,
-                  overflow: TextOverflow.ellipsis,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      newsAgency,
+                      style: LtTextStyle.manrope16bold,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      timeSincePublication,
+                      style: LtTextStyle.manrope16regular,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 Text(
                   newsSummary,
-                  style: LtTextStyle.manrope14medium,
+                  style: LtTextStyle.manrope14regular,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 4,
                 ),
               ],
             ),
