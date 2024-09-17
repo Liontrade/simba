@@ -3,19 +3,21 @@ import 'package:simba/style/_style.dart';
 
 class NewsTile extends StatelessWidget {
   final String newsAgency;
+  final String newsTitle;
   final String newsSummary;
   final String timeSincePublication;
   final String imagePath;
   final bool isForYou;
-  final bool isSaved;
+   bool isSaved;
   final bool isFirst;
   final bool isLast;
   final bool isForYouTabSelected;
   final bool isSavedTabSelected;
 
-  const NewsTile(
+   NewsTile(
       {super.key,
       required this.newsAgency,
+      required this.newsTitle,
       required this.newsSummary,
       required this.timeSincePublication,
       required this.imagePath,
@@ -88,12 +90,22 @@ class NewsTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          Icon(
-            isSaved ? Icons.bookmark_outlined : Icons.bookmark_border_outlined,
-            color: isSaved ? Colors.orange : Colors.black,
-          ),
+          IconButton(
+            icon: Icon(
+              isSaved ? Icons.bookmark_outlined : Icons.bookmark_border_outlined,
+              color: isSaved ? Colors.orange : Colors.black,
+            ),
+            onPressed: () {
+              setState(() {
+                isSaved = !isSaved;
+              });
+
+            },
+          )
         ],
       ),
     );
   }
+
+  void setState(Null Function() param0) {}
 }

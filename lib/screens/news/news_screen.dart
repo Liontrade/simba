@@ -23,22 +23,28 @@ class _NewsPageState extends State<NewsPage> {
       'image': 'assets/images/crypto.jpg',
       'title': 'Cryptocurrency',
       'saved': true,
-      'time': '12 h ago'
+      'time': '12 h ago',
+      'forYou': false,
+      'agency': 'NYT'
       // sample like status
     },
-    {'image': 'assets/images/bus.jpg', 'title': 'Public Transport', 'saved': false, 'time': '14 h ago',},
-    {'image': 'assets/images/gps.jpg', 'title': 'Navigation', 'saved': true, 'time': '2 h ago',},
+    {'image': 'assets/images/bus.jpg', 'title': 'Public Transport', 'saved': false, 'time': '14 h ago','forYou': true, 'agency': 'NYT'},
+    {'image': 'assets/images/gps.jpg', 'title': 'Navigation', 'saved': true, 'time': '2 h ago', 'forYou': true,'agency': 'WSJ'},
     {
       'image': 'assets/images/capitol.jpg',
       'title': 'Politics',
       'saved': false,
       'time': '1 h ago',
+      'forYou': false,
+      'agency': 'WSJ'
     },
     {
       'image': 'assets/images/casino.jpg',
       'title': 'Casino',
       'saved': true,
       'time': '3 h ago',
+      'forYou': true,
+      'agency': 'WSJ'
     },
   ];
 
@@ -46,9 +52,12 @@ class _NewsPageState extends State<NewsPage> {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> displayedNews = _news.where((newsItem) {
       if (_selectedTabIndex == 0) {
+        // Show all items
         return true;
       } else if (_selectedTabIndex == 1) {
         return newsItem['saved'] == true;
+      } else if (_selectedTabIndex == 2) {
+        return newsItem['forYou'] == true;
       }
       return false;
     }).toList();
@@ -94,16 +103,17 @@ class _NewsPageState extends State<NewsPage> {
                     child: Column(
                       children: [
                         NewsTile(
-                          newsAgency: news['title'],
+                          newsAgency: news['agency'],
+                          newsTitle: news['title'],
                           newsSummary: "testowy string,angahikhaaignankjoanfknsbuaibnfHIA\nankvanniweualosf",
                           timeSincePublication: '12',
                           imagePath: news['image'],
                           isSaved: news['saved'],
-                          isForYou: false,
+                          isForYou: news['forYou'],
                           isFirst: index == 0,
                           isLast: isLast,
-                          isForYouTabSelected: _selectedTabIndex == 1,
-                          isSavedTabSelected: _selectedTabIndex == 2,
+                          isForYouTabSelected: _selectedTabIndex == 2,
+                          isSavedTabSelected: _selectedTabIndex == 1,
                         ),
                         if (!isLast)
                           const Divider(

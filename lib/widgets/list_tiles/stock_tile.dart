@@ -82,10 +82,14 @@ class StockTile extends StatelessWidget {
             style: LtTextStyle.manrope20bold,
           ),
           const SizedBox(width: 10),
+          IconButton(
+            icon:
           Icon(
             isLiked ? Icons.star : Icons.star_border,
             color: isLiked ? Colors.orange : Colors.black,
           ),
+            onPressed: () {},
+          )
         ],
       ),
     );
