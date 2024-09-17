@@ -54,9 +54,9 @@ class _NewsPageState extends State<NewsPage> {
       if (_selectedTabIndex == 0) {
         // Show all items
         return true;
-      } else if (_selectedTabIndex == 1) {
-        return newsItem['saved'] == true;
       } else if (_selectedTabIndex == 2) {
+        return newsItem['saved'] == true;
+      } else if (_selectedTabIndex == 1) {
         return newsItem['forYou'] == true;
       }
       return false;
@@ -112,8 +112,8 @@ class _NewsPageState extends State<NewsPage> {
                           isForYou: news['forYou'],
                           isFirst: index == 0,
                           isLast: isLast,
-                          isForYouTabSelected: _selectedTabIndex == 2,
-                          isSavedTabSelected: _selectedTabIndex == 1,
+                          isForYouTabSelected: _selectedTabIndex == 1,
+                          isSavedTabSelected: _selectedTabIndex == 2,
                         ),
                         if (!isLast)
                           const Divider(
