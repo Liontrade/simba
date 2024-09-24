@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212316232470",
+    "project_id": "simba-ac6e2",
+    "storage_bucket": "simba-ac6e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212316232470:android:25b41dd72fd8c1bd9f0e37",
+        "android_client_info": {
+          "package_name": "pl.liontrade.simba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-LaRLFh6uxESzJ4XeSMTPp7cTdsYx_Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

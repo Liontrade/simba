@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCXtveJb5IdZVXM5-a2YfM_DXz2tBn90L8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>212316232470</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>pl.liontrade.simba</string>
+	<key>PROJECT_ID</key>
+	<string>simba-ac6e2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>simba-ac6e2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:212316232470:ios:3c6cb375f962c2869f0e37</string>
+</dict>
+</plist>
