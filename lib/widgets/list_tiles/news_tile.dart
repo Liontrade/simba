@@ -8,11 +8,12 @@ class NewsTile extends StatelessWidget {
   final String timeSincePublication;
   final String imagePath;
   final bool isForYou;
-   bool isSaved;
+  final bool isSaved;
   final bool isFirst;
   final bool isLast;
   final bool isForYouTabSelected;
   final bool isSavedTabSelected;
+  final Function onSavedPressed;
 
    NewsTile(
       {super.key,
@@ -26,7 +27,8 @@ class NewsTile extends StatelessWidget {
       required this.isLast,
       required this.isForYou,
       required this.isForYouTabSelected,
-      required this.isSavedTabSelected});
+      required this.isSavedTabSelected,
+      required this.onSavedPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +98,9 @@ class NewsTile extends StatelessWidget {
               color: isSaved ? Colors.orange : Colors.black,
             ),
             onPressed: () {
-              setState(() {
-                isSaved = !isSaved;
-              });
+                onSavedPressed();
+              },
 
-            },
           )
         ],
       ),

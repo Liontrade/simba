@@ -197,6 +197,13 @@ class _StocksPageState extends State<StocksPage> {
                           isFirst: index == 0,
                           isLast: isLast,
                           isLikedTabSelected: _selectedTabIndex == 1,
+                          onLikePressed: () {
+                            setState(() {
+                              // Find the index in the _stocks list and toggle liked
+                              final stockIndex = _stocks.indexOf(stock);
+                              _stocks[stockIndex]['liked'] = !_stocks[stockIndex]['liked'];
+                            });
+                          },
                         ),
                         if (!isLast)
                           const Divider(

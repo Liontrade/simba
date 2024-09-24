@@ -11,6 +11,7 @@ class StockTile extends StatelessWidget {
   final bool isFirst;
   final bool isLast;
   final bool isLikedTabSelected;
+  final Function onLikePressed;
 
   const StockTile({
     super.key,
@@ -23,6 +24,7 @@ class StockTile extends StatelessWidget {
     required this.isFirst,
     required this.isLast,
     required this.isLikedTabSelected,
+    required this.onLikePressed,
   });
 
   @override
@@ -88,7 +90,9 @@ class StockTile extends StatelessWidget {
             isLiked ? Icons.star : Icons.star_border,
             color: isLiked ? Colors.orange : Colors.black,
           ),
-            onPressed: () {},
+            onPressed: () {
+              onLikePressed();
+              },
           )
         ],
       ),

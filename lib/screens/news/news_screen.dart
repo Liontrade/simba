@@ -114,6 +114,13 @@ class _NewsPageState extends State<NewsPage> {
                           isLast: isLast,
                           isForYouTabSelected: _selectedTabIndex == 1,
                           isSavedTabSelected: _selectedTabIndex == 2,
+                            onSavedPressed: () {
+                              setState(() {
+                                // Find the index in the _stocks list and toggle liked
+                                final newsIndex = _news.indexOf(news);
+                                _news[newsIndex]['saved'] = !_news[newsIndex]['saved'];
+                              });
+                            }
                         ),
                         if (!isLast)
                           const Divider(
