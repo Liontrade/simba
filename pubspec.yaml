@@ -22,7 +22,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: ^0.14.1
   flutter_lints: ^3.0.0
 
 flutter:
@@ -39,8 +39,14 @@ flutter:
         - asset: assets/font/Manrope-Regular.ttf
         - asset: assets/font/Manrope-SemiBold.ttf
   assets:
+    - assets/images/
     - assets/images/casino.jpg
     - assets/images/bus.jpg
     - assets/images/capitol.jpg
     - assets/images/crypto.jpg
     - assets/images/gps.jpg
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/images/launcher/icon_launcher.png
