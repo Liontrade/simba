@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:simba/screens/news/news_screen.dart';
 import 'package:simba/screens/portfolio/portfolio_screen.dart';
 import 'package:simba/screens/settings/settings_screen.dart';
 import 'package:simba/screens/stocks/stocks_screen.dart';
 import 'package:simba/style/_style.dart';
-import 'package:simba/style/fonts/_fonts_style.dart';
 import 'package:simba/widgets/bottom_nav_bar/frosted_glass_bottom_navbar.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -20,10 +20,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
   static final List<String> _titles = ['Portfolio', 'Stocks', 'Profile Page', 'Menu'];
 
   final List<Widget> _pages = [
-    PortfolioScreen(),
+    const PortfolioScreen(),
     const StocksPage(),
     const NewsPage(),
-    SettingsScreen(
+    const SettingsScreen(
       title: 'Menu',
     ),
   ];
@@ -32,6 +32,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    FlutterNativeSplash.remove();
   }
 
   @override
